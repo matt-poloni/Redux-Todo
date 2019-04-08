@@ -4,20 +4,10 @@ import './index.css';
 import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
-const dummyReducer = () => {
-  return { 
-    todos: [
-      {
-        value: 'Walk the dog.',
-        completed: false
-      }
-    ]
-  }
-}
+import reducer from './reducers';
 
 ReactDOM.render(
-  <Provider store={createStore(dummyReducer)}>
+  <Provider store={createStore(reducer)}>
     <App />
   </Provider>,
   document.getElementById('root'));
