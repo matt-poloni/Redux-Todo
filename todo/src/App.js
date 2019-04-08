@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { addTodo } from './actions'
+import { addTodo, toggleTodo } from './actions'
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +21,12 @@ class App extends Component {
     this.setState({ newTodoText: '' })
   };
 
+  toggleTodo = e => {
+    this.props.toggleTodo(e.target.id);
+  }
+
   render() {
+    console.log(this.props.todos);
     return (
       <div className="App">
         <form
@@ -36,7 +41,16 @@ class App extends Component {
           <button type='submit'>Add Todo</button>
         </form>
         <ul>
-          {this.props.todos.map((todo, i) => <li key={i}>{todo.value}</li>)}
+          {this.props.todos.map(todo => (
+            <li
+              key={todo.id}
+              className={todo.completed ? 'completed' : ''}
+              id={todo.id}
+              onClick={this.toggleTodo}
+            >
+              {todo.value}
+            </li>
+          ))}
         </ul>
       </div>
     );
@@ -51,5 +65,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, toggleTodo }
 )(App);
