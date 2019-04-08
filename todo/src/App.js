@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { addTodo, toggleTodo } from './actions'
+import TodoList from './components/TodoList';
 
 class App extends Component {
   constructor(props) {
@@ -26,7 +27,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.todos);
     return (
       <div className="App">
         <form
@@ -40,18 +40,10 @@ class App extends Component {
           />
           <button type='submit'>Add Todo</button>
         </form>
-        <ul>
-          {this.props.todos.map(todo => (
-            <li
-              key={todo.id}
-              className={todo.completed ? 'completed' : ''}
-              id={todo.id}
-              onClick={this.toggleTodo}
-            >
-              {todo.value}
-            </li>
-          ))}
-        </ul>
+        <TodoList
+          todos={this.props.todos}
+          toggleTodo={this.toggleTodo}
+        />
       </div>
     );
   }

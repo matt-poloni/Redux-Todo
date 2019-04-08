@@ -4,9 +4,14 @@ const initialState = {
   todos: [
     {
       id: 0,
-      value: 'Walk the dog.',
-      completed: false
-    }
+      value: 'Prepopulated, Not Complete',
+      completed: false,
+    },
+    {
+      id: 1,
+      value: 'Prepopulated, Complete',
+      completed: true,
+    },
   ]
 }
 
@@ -37,7 +42,7 @@ const rootReducer = (state = initialState, action) => {
             : todo;
           }
         )
-      }
+      };
     default:
       return state
   }
