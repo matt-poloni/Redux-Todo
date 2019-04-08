@@ -6,18 +6,18 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 const dummyReducer = () => {
-  return { todos: [
-    {
-      value: 'Walk the dog.',
-      completed: false
-    }
-  ] }
+  return { 
+    todos: [
+      {
+        value: 'Walk the dog.',
+        completed: false
+      }
+    ]
+  }
 }
 
-const store = createStore(dummyReducer);
-
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={createStore(dummyReducer)}>
     <App />
   </Provider>,
   document.getElementById('root'));
