@@ -18,7 +18,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         todos: [
           ...state.todos,
-          action.payload,
+          {
+            id: Date.now(),
+            value: action.payload,
+            completed: false,
+          },
         ]
       };
     case TOGGLE_TODO:
