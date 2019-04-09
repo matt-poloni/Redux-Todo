@@ -62,7 +62,7 @@ Topics:
 * [x] You will have several action creators. One for adding a new todo item and another for toggling each todo item.
 * [x] Containers require `connect` and a `mapStateToProps(state)` function to read from the state tree.
 * [x] Actions creators should be passed inside an object as the second argument to the `connect` function inside components that need access to the Redux store.
-* http://redux.js.org/ has a todo list as an example project in their documentation. Feel free to use this as a reference as well.
+* [x] http://redux.js.org/ has a todo list as an example project in their documentation. Feel free to use this as a reference as well.
 
 ## Stretch Problem
 

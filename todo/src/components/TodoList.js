@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { toggleTodo } from '../actions';
 
 class TodoList extends React.Component {
-  toggleTodo = e => {
-    this.props.toggleTodo(e.target.id);
+  toggleTodo = id => {
+    this.props.toggleTodo(id);
   }
 
   render() {
@@ -14,8 +14,7 @@ class TodoList extends React.Component {
           <li
             key={todo.id}
             className={todo.completed ? 'completed' : ''}
-            id={todo.id}
-            onClick={this.toggleTodo}
+            onClick={() => this.toggleTodo(todo.id)}
           >
             {todo.value}
           </li>

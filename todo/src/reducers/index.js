@@ -35,7 +35,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.map(todo => {
-          return `${todo.id}` === action.payload
+          return todo.id === action.payload
             ? ({
                 ...todo,
                 completed: !todo.completed,
