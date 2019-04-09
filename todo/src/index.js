@@ -4,12 +4,16 @@ import './reset.css';
 import './index.css';
 import { loadState, saveState } from './localStorage';
 import { createStore } from 'redux';
-import reducer from './reducers';
+import rootReducer from './reducers';
 import { Provider } from 'react-redux';
 import App from './App';
 
 const localState = loadState();
-const store = createStore(reducer, localState);
+const store = createStore(
+  rootReducer,
+  localState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 store.subscribe(() => {
   saveState(store.getState());
