@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions';
 
 let nextID = 2;
 const initialState = {
@@ -42,8 +42,15 @@ const rootReducer = (state = initialState, action) => {
               })
             : todo;
           }
-        )
+        ),
       };
+    case DELETE_TODO:
+      return {
+        ...state,
+        todos: state.todos.filter(todo => {
+          return todo.id !== action.payload && todo;
+        }),
+      }
     default:
       return state
   }
