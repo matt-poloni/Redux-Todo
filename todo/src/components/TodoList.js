@@ -13,10 +13,16 @@ class TodoList extends React.Component {
         {this.props.todos.map(todo => (
           <li
             key={todo.id}
-            className={todo.completed ? 'completed' : ''}
             onClick={() => this.toggleTodo(todo.id)}
           >
-            {todo.value}
+            <span
+              className={todo.completed ? 'completed' : ''}
+            >
+              {todo.value}
+            </span>
+            <button>
+              Delete
+            </button>
           </li>
         ))}
       </ul>
