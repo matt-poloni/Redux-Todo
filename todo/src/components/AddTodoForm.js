@@ -37,13 +37,7 @@ class AddTodoForm extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    todos: state.todos
-  }
-}
-
 export default connect(
-  mapStateToProps,
+  null,
   { addTodo }
 )(AddTodoForm);
