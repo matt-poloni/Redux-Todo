@@ -7,7 +7,7 @@ class TodoList extends React.Component {
     this.props.toggleTodo(id);
   }
 
-  deleteTodo = (id, e) => {
+  deleteTodo = (e, id) => {
     e.preventDefault();
     e.stopPropagation();
     this.props.deleteTodo(id);
@@ -27,7 +27,7 @@ class TodoList extends React.Component {
               {todo.value}
             </span>
             <button
-              onClick={e => this.deleteTodo(todo.id, e)}
+              onClick={e => this.deleteTodo(e, todo.id)}
             >
               Delete
             </button>
