@@ -1,5 +1,6 @@
 import { ADD_TODO, TOGGLE_TODO } from '../actions';
 
+let nextID = 2;
 const initialState = {
   todos: [
     {
@@ -24,7 +25,7 @@ const rootReducer = (state = initialState, action) => {
         todos: [
           ...state.todos,
           {
-            id: Date.now(),
+            id: nextID++,
             value: action.payload,
             completed: false,
           },
