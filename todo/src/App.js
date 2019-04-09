@@ -3,25 +3,9 @@ import './App.css';
 import { connect } from 'react-redux';
 import { addTodo, toggleTodo } from './actions'
 import TodoList from './components/TodoList';
+import AddTodoForm from './components/AddTodoForm';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      newTodoText: '',
-    }
-  }
-
-  handleChanges = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  addTodo = e => {
-    e.preventDefault();
-    this.props.addTodo(this.state.newTodoText);
-    this.setState({ newTodoText: '' })
-  };
-
   toggleTodo = e => {
     this.props.toggleTodo(e.target.id);
   }
@@ -29,17 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <form
-          onSubmit={this.addTodo}
-        >
-          <input
-            type='text'
-            name='newTodoText'
-            value={this.state.newTodoText}
-            onChange={this.handleChanges}
-          />
-          <button type='submit'>Add Todo</button>
-        </form>
+        <AddTodoForm />
         <TodoList
           todos={this.props.todos}
           toggleTodo={this.toggleTodo}
