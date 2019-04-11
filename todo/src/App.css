@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+form {
+  margin: 1em;
+}
+
+ul {
+  margin: 1em;
+}
+
+ul li {
+  margin: 0.5em;
+}
+
+li .completed {
+  text-decoration: line-through;
+}
+
+li button {
+  margin-left: 1em;
+}
